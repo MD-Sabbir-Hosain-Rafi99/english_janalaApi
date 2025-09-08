@@ -8,3 +8,7 @@
 .navbarBg{
     background-color: #cee4f8;
 }
+.container{
+    width: 1370px;
+    margin: 0 auto;
+}
