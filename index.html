@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,7 @@
     <link rel="stylesheet" href="style.css">
     <!-- Style sheet -->
 </head>
+
 <body>
     <!-- Header Section Start -->
     <header class="">
@@ -44,15 +46,16 @@
                     </div>
                     <ul tabindex="1"
                         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                         <a href="#">
-                        <button class="btn w-full"><i class="fa-solid fa-circle-question"></i> FAQ</button>
-                    </a>
-                    <a href="#">
-                        <button class="btn w-full mt-3 mb-3"><i class="fa-solid fa-book-open"></i> Learn</button>
-                    </a>
-                    <a href="#">
-                        <button class="btn w-full"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
-                    </a>
+                        <a href="#">
+                            <button class="btn w-full"><i class="fa-solid fa-circle-question"></i> FAQ</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn w-full mt-3 mb-3"><i class="fa-solid fa-book-open"></i> Learn</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn w-full"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                Logout</button>
+                        </a>
                     </ul>
                 </div>
                 <a href="#" class="flex items-center gap-1">
@@ -64,33 +67,55 @@
             <div class="navbar-end hidden lg:flex">
                 <ul class="menu menu-horizontal px-1 space-x-3">
                     <a href="#">
-                        <button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</button>
+                        <button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i>
+                            FAQ</button>
                     </a>
                     <a href="#">
                         <button class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</button>
                     </a>
                     <a href="#">
-                        <button class="btn btn-outline btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+                        <button class="btn btn-outline btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            Logout</button>
                     </a>
                 </ul>
             </div>
-
-
         </div>
     </header>
     <!-- Header Section End -->
 
     <!-- Banner Section Start -->
-     <section class="flex flex-col-reverse md:flex-row gap-10 justify-between items-center py-5 w-11/12 mx-auto">
+    <section class="flex flex-col-reverse md:flex-row gap-10 justify-between items-center py-5 w-11/12 mx-auto">
         <div class="content flex-1 text-center md:text-start">
             <h1 class="text-4xl md:text-5xl font-bold"><span class="text-sky-400">English</span> is Easy!!</h1>
-            <p class="font-bangla text-[24px] md:w-[727px] font-normal md:font-medium text-[#18181B] mt-5 mb-5">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
-            <button class="btn btn-primary">Primary</button>
+            <p class="font-bangla text-[24px] md:w-[727px] font-normal md:font-medium text-[#18181B] mt-5 mb-5">আজ থেকেই
+                আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive
+                Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+            <button class="btn btn-primary">Get Started</button>
         </div>
         <div class="image flex-1">
             <img src="./assets/hero-student.png" alt="">
         </div>
-     </section>
+    </section>
     <!-- Banner Section End -->
+
+    <!-- Lesson Buttons Start -->
+    <section>
+        <h2 class="text-2xl md:text-3xl font-bold text-center">
+            <span class="text-sky-400">Let's</span> Learn Vocabularies
+        </h2>
+
+        <div id="lesons-container" class="flex flex-wrap gap-10 items-center justify-center mt-10">
+
+        </div>
+    </section>
+    <!-- Lesson Buttons End -->
+
+    <!-- Word Section Start -->
+     <section id="word-container" class="w-11/12 mx-auto bg-[#F8F8F8] p-10 my-10 rounded-xl grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+     </section>
+    <!-- Word Section End -->
+
+    <script src="script/index.js"></script>
 </body>
 </html>
