@@ -1,21 +1,64 @@
+const createElements = (arr) => {
+    const htmlElements = arr.map((el) => `<span class="btn bg-sky-100 rounded-md text-center">${el}</span>`);
+    return htmlElements.join(" ");
+}
+
+
+
+
+
 let fetchData = () => {
     fetch('https://openapi.programming-hero.com/api/levels/all')
         .then((res) => res.json())
         .then((json) => lessonsData(json.data))
 }
-// {
-// "id": 4,
-// "level": 5,
-// "word": "Diligent",
-// "meaning": "পরিশ্রমী",
-// "pronunciation": "ডিলিজেন্ট"
-// },
+
+
+const removeActionClass = () => {
+    const lessonBtn = document.querySelectorAll(".lesson-btn");
+    // console.log(lessonBtn);
+    lessonBtn.forEach(btn => btn.classList.remove("active"));
+}
+
 const lessonword = (id) => {
     // console.log(id);
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     fetch(url)
         .then((res) => res.json())
-        .then((data) => lessonWordDisplay(data.data))
+        .then((data) => {
+            removeActionClass(); // Remove Active Class
+            const clickBtn = document.getElementById(`lesson-btn-${id}`)
+            clickBtn.classList.add("active"); // Active class add korsi
+            lessonWordDisplay(data.data);
+        })
+}
+
+const lessonwordDetails = async (id) => {
+    let url = `https://openapi.programming-hero.com/api/word/${id}`
+    const res = await fetch(url);
+    const details = await res.json();
+    wordDetailDisplay(details.data)
+}
+
+const wordDetailDisplay = (word) => {
+    // console.log(wor.data);
+    let modalContainer = document.getElementById("details-container");
+    // let modalCreate = document.createElement("div")
+    modalContainer.innerHTML = `<div class="">
+                    <h3 class="text-3xl font-bold">${word.word} ( <i class="fa-solid fa-microphone-lines"></i> :${word.pronunciation})</h3>
+                    <p class="py-3 text-xl font-semibold">Meaning</p>
+                    <p class="text-xl font-bangla">${word.meaning}</p>
+                    <p class="py-3 text-xl font-semibold">Example</p>
+                    <p class="text-xl font-bangla">${word.sentence}</p>
+                    <p class="py-3 text-xl font-semibold font-bangla">সমার্থক শব্দ গুলো</p>
+                    <div class="">
+                        ${createElements(word.synonyms)}
+                    </div>
+                    
+                </div>`;
+    document.getElementById("my_modal_5").showModal();
+    // modalContainer.appendChild(modalCreate)
+
 }
 
 const lessonWordDisplay = (words) => {
@@ -39,7 +82,7 @@ const lessonWordDisplay = (words) => {
             <p class="py-5">Meaning /Pronounciation</p>
             <div class="font-bold text-2xl font-bangla">"${word.meaning ? word.meaning : "Word Meaning Missing"} / ${word.pronunciation ? word.pronunciation : "Pronunciation Missing"}"</div>
             <div class="flex justify-between items-center">
-                <button class="btn"><i class="fa-solid fa-circle-info"></i></button> 
+                <button onclick="lessonwordDetails(${word.id})" class="btn"><i class="fa-solid fa-circle-info"></i></button> 
                 <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
             </div>
         </div>`
@@ -63,12 +106,12 @@ let lessonsData = ((lessons) => {
         let buttons = document.createElement("div");
         buttons.innerHTML = `
                     <a href="#">
-                        <button onclick="lessonword(${lesson.level_no})" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Lesson - ${lesson.level_no}</button>
+                        <button id="lesson-btn-${lesson.level_no}" onclick="lessonword(${lesson.level_no})" class="btn btn-outline btn-primary lesson-btn"><i class="fa-solid fa-book-open"></i> Lesson - ${lesson.level_no}</button>
                     </a>`;
 
         lessonsContainer.appendChild(buttons)
     }
-
 })
+
 
 fetchData()
