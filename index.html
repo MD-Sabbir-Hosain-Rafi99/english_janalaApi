@@ -110,6 +110,21 @@
     </section>
     <!-- Lesson Buttons End -->
 
+    <section class="flex justify-center py-20">
+        <div class="join">
+            <div>
+                <label class="input validator join-item">
+                    <input id="searchInputField" type="search" placeholder="Search Vocabulary"/>
+                </label>
+            </div>
+            <button id="searchBtn" class="btn btn-neutral join-item">Search</button>
+        </div>
+    </section>
+
+    <section id="spinner" class="flex justify-center items-center py-10 hidden">
+        <span class="loading loading-spinner loading-xl bg-blue-600"></span>
+    </section>
+
     <!-- Word Section Start -->
     <section id="word-container"
         class="w-11/12 mx-auto bg-[#F8F8F8] p-10 my-10 rounded-xl grid grid-cols-1 md:grid-cols-3 gap-5">
